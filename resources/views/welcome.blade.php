@@ -2193,6 +2193,7 @@
             </nav>
         @endif
     </header>
+    <div><a href="/aboutpath" class="text-blue-600">About</a></div>
     <div>Ya Allah Ya Mohammad S.A.W</div>
     @php
         $str = addcslashes("Hello 'World'!", "W");
@@ -2272,6 +2273,7 @@
 
 
 
+ 
     @endphp
     @php
         //declare(strict_types=1); //alraeady declared at the top of the file 
@@ -2308,13 +2310,78 @@
         echo "<br>" . $assArray[0]["name"];
         echo "<br>";
         foreach ($assArray as $indx) {
+            // echo "<pre>";
+            //   print_r($indx);
+            // echo "</pre>";
+            // echo "<br> now";
             foreach ($indx as $key => $value) {
                 echo " $key : $value <br>";
+                //         echo "<pre>";
+                //   print_r($key);
+                // echo "</pre>";
             }
-
-
         }
+
+
     @endphp
+
+    @php
+    // superglobals
+    // will not work in laravel blade files because laravel blade files are not pure php files, they are compiled into php files and then executed. so we cannot use superglobals in laravel blade files.
+    
+    //     echo "<br>";
+    //     $mkglb2 = 10;
+    //     function test22()
+    //     {
+    //         // echo $x; // this will not work because $x is not in the local scope of the function
+    //        echo  $GLOBALS['mkglb2'] ?? "default value"; // this will work because $GLOBALS is a superglobal array that contains all global variables
+    //     }
+    //     test22();
+
+    //    // another way
+    //     $mkglb = 10;
+
+    //     function text23()
+    //     {
+    //         global $mkglb;
+    //         var_dump($mkglb);
+    //         echo $mkglb;
+    //     }
+    //     text23();
+
+
+    // to achieve we write code in controller and pass the data to view file
+
+    // ./controller/WelcomeController.php
+//     public function index()
+// {
+//     $mkglb = 10;
+//     return view('welcome', compact('mkglb'));
+// }
+
+//welcome.blade.php:
+// {{ $mkglb }}
+
+//PHP $_SERVER Superglobal
+echo "HTTP_HOST : " . $_SERVER['HTTP_HOST'];
+echo "<br>";
+echo "REQUEST_TIME : " . $_SERVER['REQUEST_TIME'];
+    @endphp
+
+   /* will not work in laravel blade files because laravel blade files are not pure php files, they are compiled into php files and then executed. so we cannot use superglobals in laravel blade files. */
+   <form method="post" action="formdata">
+    @csrf
+    <input type="text" name="name" class="border border-gray-300 rounded-md" />
+    <input type="phone" name="phno" class="border border-gray-300 rounded-md" />
+    <button type="submit" name="submit" value="submit" class="border border-gray-300 rounded-md">submit</button>
+   </form>
+
+@php
+
+
+@endphp
+
+
 
     @if (Route::has('login'))
         <div class="h-14.5 hidden lg:block"></div>
