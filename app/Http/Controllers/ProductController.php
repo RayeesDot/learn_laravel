@@ -7,7 +7,7 @@ use Illuminate\Http\JsonResponse;
 use App\Models\Product;
 use Illuminate\Support\Facades\Log;
 
-
+// only for api || api.php not for blade template||web.php
 class ProductController extends Controller
 {
     /**
