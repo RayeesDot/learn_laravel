@@ -10,7 +10,7 @@ class AuthWebController extends Controller
 {
     public function Showlogin()
     {
-        return view('auth.login');   // resource/views/auth
+        return view('auth.loginform');   // resource/views/auth
     }
     public function login(Request $request, AuthService $service)
     {
